@@ -1,7 +1,7 @@
 import React from 'react'
-import { useState } from "react";
+import { useState, useEffect } from 'react';
 
-export default function Form() {
+export default function Form( {title} ) {
 
     const [email, setEmail] = useState(() => {
         const getStorage = JSON.parse(localStorage.getItem('user')) || ''
@@ -20,6 +20,10 @@ export default function Form() {
         const setUser = JSON.stringify(data)
         localStorage.setItem('user', setUser)
     }
+
+    useEffect(() => {
+        console.log({email});
+    }, [email])
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -57,7 +61,7 @@ export default function Form() {
                  "text-align": "center",
                  "padding": 20,
              }}>
-                Form Đăng nhập
+                {title}
             </h1>
             </div>
             <form className="row g-3 col-8 justify-content-center mx-auto rounded">
@@ -99,13 +103,12 @@ export default function Form() {
                     </div>
                 </div>
                 <div className="col-md-6">
-                    <label htmlFor="inputPassword4" className="form-label">Xóa dữ liệu</label>
+                    <label htmlFor="inputPassword" className="form-label">Xóa dữ liệu</label>
                     <input type="reset" value="Reset form" />
                 </div>
                 <div className="col-12">
                     <button
-                        className="btn
-                        btn-primary"
+                        className="btn btn-primary"
                         onClick={handleSubmit}
                     >
                         Đăng nhập</button>

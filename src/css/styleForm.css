@@ -1,0 +1,179 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: mulish;
+}
+
+/* .test {
+    max-width: 80%;
+    margin: 0 auto;
+} */
+
+.img-login {
+    width: 100%;
+    height: 900px;
+}
+
+.register {
+    position: absolute;
+    width: 150px;
+    height: 48px;
+    left: 1155px;
+    top: 30px;
+
+    background: rgba(62, 69, 237, 0.1);
+    border-radius: 8px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #3E45ED;
+    transition: .5s ease;
+}
+
+.register:hover {
+    background: #000475;
+    color: #fff;
+    cursor: pointer;
+}
+
+.register-title {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    /* identical to box height, or 150% */
+}
+
+.login {
+    max-width: 570px;
+    margin-top: 198px;
+    margin-left: 145px;
+}
+
+.title-login {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 21px;
+    margin-bottom: 12px;
+}
+
+.heading-login {
+    font-style: normal;
+    font-weight: 800;
+    font-size: 36px;
+    line-height: 54px;
+    margin-bottom: 24px;
+}
+
+input {
+    width: 100%;
+    margin-bottom: 16px;
+    background: #FFFFFF;
+    border: 1px solid #EEEEEE;
+    box-sizing: border-box;
+    border-radius: 8px;
+    padding: 16px;
+    outline: none;
+    transition: .5s ease;
+}
+
+.input::placeholder {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    color: #888888;
+}
+
+input:focus {
+    border: 3px solid #3E45ED;
+    box-sizing: border-box;
+}
+
+.eye-password {
+    margin-left: -40px;
+    color: gray;
+    cursor: pointer;
+}
+
+.submit {
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn-submit {
+    width: 210px;
+    height: 48px;
+    background: #3E45ED;
+    border-radius: 8px;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    color: #ffffff;
+    transition: 0.5s ease;
+}
+
+.btn-submit:hover {
+    cursor: pointer;
+    background-color: #000475;
+}
+
+.icon {
+    display: flex;
+    align-items: center;
+    margin-left: 69px;
+    font-size: 24px;
+}
+
+.no-password {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    color: #3E45ED;
+
+    transition: 0.5s ease;
+
+}
+
+.no-password:hover {
+    cursor: pointer;
+    color: #000475;
+}
+
+.br {
+    margin-top: 272px;
+    margin-left: 145px;
+    width: 570px;
+    height: 2px;
+    background: #d6d6d6;
+}
+
+.footer {
+    margin-top: 24px;
+    margin-left: 145px;
+    display: flex;
+}
+
+.footer-title {
+    font-size: 16px;
+    line-height: 24px;
+    color: #888888;
+
+}
+
+.icon-footer {
+    margin-left: 24px;
+}
+
+.icon-footer ion-icon {
+    margin-left: 16px;
+}
