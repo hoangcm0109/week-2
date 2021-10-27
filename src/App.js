@@ -7,7 +7,6 @@ import { useState } from "react";
 
 function App() {
   // const [ show, setShow ] = useState(false)
-  const [sign, setSign] = useState(true)
   return (
     <div>
       {/* { show && 
@@ -17,8 +16,8 @@ function App() {
       }
       <button onClick={() => setShow(!show)} > Click show </button> */}
 
-      {/* {sign && <Formlogin showWeb={() => setSign(false)} /> || <Register />} */}
-      <Profile />
+      <Formlogin />
+      
     </div>
   );
 }

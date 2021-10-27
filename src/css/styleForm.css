@@ -177,3 +177,8 @@
 .icon-footer ion-icon {
     margin-left: 16px;
 }
+
+.position-alert {
+    position: absolute;
+    /* width: 100%; */
+}

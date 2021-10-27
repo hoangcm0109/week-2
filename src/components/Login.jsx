@@ -15,9 +15,8 @@ export default function Login(props) {
         if(email === '123456' && password === '123456') {
             setAlert(true)
             setFail(false)
-            const run = props.showWebProfile
-            console.log(run);
-            return run
+            props.show()
+            
         } else {
             setAlert(false)
             setFail(true)
@@ -75,8 +74,8 @@ export default function Login(props) {
                     </div>
                 </div>
                 <div className="alert">
-                    {alert && <div className="alert alert-success">Đăng nhập thành công</div>}
-                    {fail && <div className="alert alert-danger">Tài khoản mật khẩu không chính xác</div>}
+                    {alert && <div className="alert alert-success position-alert">Đăng nhập thành công</div>}
+                    {fail && <div className="alert alert-danger position-alert">Tài khoản mật khẩu không chính xác</div>}
                 </div>
             </div>
         </div>

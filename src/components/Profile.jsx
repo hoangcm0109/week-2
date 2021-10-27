@@ -6,6 +6,8 @@ import content1 from '../img/content1.png'
 import img2 from '../img/img2.png'
 
 export default function Profile() {
+
+
     return (
         <div>
             <div className="main-menu">
@@ -63,16 +65,40 @@ export default function Profile() {
 
                         <div className="content-main">
                             <div className="main-image">
-                                <img src={img2} alt="" />
+                                <img src={img2} alt="" className="img-box"/>
+                                <div className="box">
+                                    <div className="box-heading">Bài viết 1</div>
+                                    <div className="box-title">
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam ...
+                                    </div>
+                                </div>
                             </div>
                             <div className="main-image">
-                                <img src={img2} alt="" />
+                                <img src={img2} alt="" className="img-box"/>
+                                <div className="box">
+                                    <div className="box-heading">Bài viết 1</div>
+                                    <div className="box-title">
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam ...
+                                    </div>
+                                </div>
                             </div>
                             <div className="main-image">
-                                <img src={img2} alt="" />
+                                <img src={img2} alt="" className="img-box"/>
+                                <div className="box">
+                                    <div className="box-heading">Bài viết 1</div>
+                                    <div className="box-title">
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam ...
+                                    </div>
+                                </div>
                             </div>
                             <div className="main-image">
-                                <img src={img2} alt="" />
+                                <img src={img2} alt="" className="img-box"/>
+                                <div className="box">
+                                    <div className="box-heading">Bài viết 1</div>
+                                    <div className="box-title">
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam ...
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
