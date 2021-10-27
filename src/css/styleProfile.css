@@ -1,0 +1,153 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.main-profile {
+    max-width: 1130px;
+    margin: 0 auto;
+}
+
+.main-menu {
+    height: 59px;
+    background-color: #fff;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: end;
+    padding: 19px 39px;
+}
+
+.menu-link {
+    font-size: 16px;
+    margin-left: 24px;
+    cursor: pointer;
+    display: block;
+}
+
+.circle {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: #DD0F0F;
+    color: white;
+    font-size: 12px;
+    font-weight: 600;
+    margin-left: 8px;
+    padding: 5px;
+    text-align: center;
+}
+
+.arrow {
+    margin-left: 8px;
+}
+
+.main-img-profile {
+    height: 250px;
+    position: relative;
+}
+
+.content-profile {
+    position: absolute;
+    top: 42px;
+    padding: 0 155px;
+    width: 100%;
+}
+
+.hero {
+    display: flex;
+}
+
+.profile-img {
+    height: 80px;
+    width: 80px;
+}
+
+.title-profile {
+    color: white;
+    margin-left: 42px;
+}
+
+.heading {
+    font-size: 24px;
+}
+
+.desc {
+    margin-top: 8px;
+    margin-bottom: 34px;
+    width: 426px;
+    font-size: 14px;
+}
+
+.rectangle {
+    height: 1px;
+    background-color: white;
+}
+
+.content-number {
+    display: flex;
+    color: white;
+}
+
+.follow {
+    margin-left: 122px;
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+}
+
+.follow-heading {
+    font-size: 24px;
+    font-weight: 800;
+}
+
+.follow-title {
+    font-size: 14px;
+    margin-left: 8px;
+
+}
+
+.previous {
+    width: 100%;
+    margin-top: 40px;
+    margin-bottom: 34px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.prev-title {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.all {
+    display: flex;
+    align-items: center;
+}
+
+.prev-all {
+    margin-right: 10px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.fas {
+    line-height: 24px;
+}
+
+p {
+    margin: 0;
+}
+
+.content-main {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 169px 62px;
+}
+
+.content-image {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 30px 31px;
+}

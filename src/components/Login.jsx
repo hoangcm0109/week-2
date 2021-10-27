@@ -5,14 +5,22 @@ export default function Login(props) {
     const [email, setEmail] = useState()
     const [password, setPassword] = useState()
     const [showPassword, setShowPassword] = useState('password')
+    
+    const [alert, setAlert] = useState(false)
+    const [fail, setFail] = useState(false)
 
     // console.log(props);
 
     const handleSubmit = () => {
         if(email === '123456' && password === '123456') {
+            setAlert(true)
+            setFail(false)
             const run = props.showWebProfile
             console.log(run);
             return run
+        } else {
+            setAlert(false)
+            setFail(true)
         }
         
     }
@@ -46,7 +54,7 @@ export default function Login(props) {
                 />
                 <i className="fas fa-eye eye-password"
                     onClick={(e) => {
-                        const type = showPassword === 'text' ? 'password' : 'texxt';
+                        const type = showPassword === 'text' ? 'password' : 'text';
                         console.log(type);
                         setShowPassword(type)
                     }}
@@ -66,7 +74,10 @@ export default function Login(props) {
                         Quên mật khẩu
                     </div>
                 </div>
-                
+                <div className="alert">
+                    {alert && <div className="alert alert-success">Đăng nhập thành công</div>}
+                    {fail && <div className="alert alert-danger">Tài khoản mật khẩu không chính xác</div>}
+                </div>
             </div>
         </div>
     )

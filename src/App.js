@@ -1,6 +1,7 @@
 import Register from './components/Register';
 import Form from './components/Form';
 import Formlogin from './components/Formlogin';
+import Profile from './components/Profile';
 import './App.css';
 import { useState } from "react";
 
@@ -16,8 +17,8 @@ function App() {
       }
       <button onClick={() => setShow(!show)} > Click show </button> */}
 
-      {sign && <Formlogin showWeb={() => setSign(false)} /> || <Register />}
-
+      {/* {sign && <Formlogin showWeb={() => setSign(false)} /> || <Register />} */}
+      <Profile />
     </div>
   );
 }
