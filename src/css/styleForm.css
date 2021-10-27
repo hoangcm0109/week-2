@@ -68,7 +68,7 @@
     margin-bottom: 24px;
 }
 
-input {
+.input-login {
     width: 100%;
     margin-bottom: 16px;
     background: #FFFFFF;
@@ -88,7 +88,7 @@ input {
     color: #888888;
 }
 
-input:focus {
+.input-login:focus {
     border: 3px solid #3E45ED;
     box-sizing: border-box;
 }

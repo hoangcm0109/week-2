@@ -2,23 +2,28 @@ import React from 'react'
 import '../css/styleForm.css'
 import image from '../img/img1.png'
 import Login from './Login'
+import Register from '../components/Register';
 import { useEffect, useState } from 'react'
 
-export default function Formlogin(Avt) {
+export default function Formlogin(props) {
+    const [show, setShow] = useState(false)
     return (
         <div>
+            {show && <Register onClick={() => setShow(false)}/>}
             <div className="row test">
                 <div className="col-4">
                     <img src={image} className="img-login" alt="Hello anh em" />
                 </div>
                 <div className="col-8">
                     <div className="register">
-                        <div className="register-title">
+                        <div className="register-title" 
+                            onClick={() => setShow(true)}
+                        >
                             Đăng ký
                         </div>
                     </div>
                     
-                    <Login />
+                    <Login showWebProfile={props.showWeb} />
 
                     <div className="br"></div>
 

@@ -1,16 +1,22 @@
 import React from 'react'
 import { useState } from 'react'
 
-export default function Login() {
+export default function Login(props) {
     const [email, setEmail] = useState()
     const [password, setPassword] = useState()
+    const [showPassword, setShowPassword] = useState('password')
+
+    // console.log(props);
 
     const handleSubmit = () => {
-
-        console.log({email, password});
+        if(email === '123456' && password === '123456') {
+            const run = props.showWebProfile
+            console.log(run);
+            return run
+        }
+        
     }
 
-    const [showPassword, setShowPassword] = useState('password')
 
     return (
         <div>
@@ -24,7 +30,7 @@ export default function Login() {
 
                 <input
                     type="text"
-                    className="input-email"
+                    className="input-email input-login"
                     placeholder="E-mail hoặc Số điện thoại"
                     onChange={(e) => {
                         setEmail(e.target.value)
@@ -32,7 +38,7 @@ export default function Login() {
                 />
                 <input
                     type={showPassword}
-                    className="input-password"
+                    className="input-password input-login"
                     placeholder="Mật khẩu"
                     onChange={(e) => {
                         setPassword(e.target.value)
@@ -40,7 +46,7 @@ export default function Login() {
                 />
                 <i className="fas fa-eye eye-password"
                     onClick={(e) => {
-                        const type = showPassword === 'text' ? 'password' : 'text';
+                        const type = showPassword === 'text' ? 'password' : 'texxt';
                         console.log(type);
                         setShowPassword(type)
                     }}
