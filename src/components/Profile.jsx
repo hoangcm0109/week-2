@@ -4,10 +4,12 @@ import ProfileImg from '../img/profile.png'
 import avatar from '../img/avt.png'
 import content1 from '../img/content1.png'
 import img2 from '../img/img2.png'
+import images from '../img/image.js'
 
 export default function Profile() {
 
-
+    console.log(img2);
+    console.log(images.img_demo);
     return (
         <div>
             <div className="main-menu">
@@ -116,22 +118,22 @@ export default function Profile() {
 
                         <div className="content-image">
                             <div className="image-profile">
-                                <img src={content1} alt="" />
+                                <img src={images.content1.default} alt="" />
                             </div>
                             <div className="image-profile">
-                                <img src={content1} alt="" />
+                                <img src={images.content2.default} alt="" />
                             </div>
                             <div className="image-profile">
-                                <img src={content1} alt="" />
+                                <img src={images.content3.default} alt="" />
                             </div>
                             <div className="image-profile">
-                                <img src={content1} alt="" />
+                                <img src={images.content4.default} alt="" />
                             </div>
                             <div className="image-profile">
-                                <img src={content1} alt="" />
+                                <img src={images.content5.default} alt="" />
                             </div>
                             <div className="image-profile">
-                                <img src={content1} alt="" />
+                                <img src={images.content6.default} alt="" />
                             </div>
                         </div>
                     </div>
