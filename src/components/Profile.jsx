@@ -2,14 +2,13 @@ import React from 'react'
 import '../css/styleProfile.css'
 import ProfileImg from '../img/profile.png'
 import avatar from '../img/avt.png'
-import content1 from '../img/content1.png'
 import img2 from '../img/img2.png'
 import images from '../img/image.js'
 
 export default function Profile() {
 
     console.log(img2);
-    console.log(images.img_demo);
+    console.log(images);
     return (
         <div>
             <div className="main-menu">
@@ -67,7 +66,7 @@ export default function Profile() {
 
                         <div className="content-main">
                             <div className="main-image">
-                                <img src={img2} alt="" className="img-box"/>
+                                <img src={images.img2.default} alt="" className="img-box"/>
                                 <div className="box">
                                     <div className="box-heading">Bài viết 1</div>
                                     <div className="box-title">
@@ -76,7 +75,7 @@ export default function Profile() {
                                 </div>
                             </div>
                             <div className="main-image">
-                                <img src={img2} alt="" className="img-box"/>
+                                <img src={images.img3.default} alt="" className="img-box"/>
                                 <div className="box">
                                     <div className="box-heading">Bài viết 1</div>
                                     <div className="box-title">
@@ -85,7 +84,7 @@ export default function Profile() {
                                 </div>
                             </div>
                             <div className="main-image">
-                                <img src={img2} alt="" className="img-box"/>
+                                <img src={images.img4.default} alt="" className="img-box"/>
                                 <div className="box">
                                     <div className="box-heading">Bài viết 1</div>
                                     <div className="box-title">
@@ -94,7 +93,7 @@ export default function Profile() {
                                 </div>
                             </div>
                             <div className="main-image">
-                                <img src={img2} alt="" className="img-box"/>
+                                <img src={images.img5.default} alt="" className="img-box"/>
                                 <div className="box">
                                     <div className="box-heading">Bài viết 1</div>
                                     <div className="box-title">

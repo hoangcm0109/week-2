@@ -3,23 +3,22 @@ import Form from './components/Form';
 import Formlogin from './components/Formlogin';
 import Profile from './components/Profile';
 import './App.css';
-import { useState } from "react";
-
+import { useContext } from "react";
+import { LoginContext } from './context/LoginContext'
 function App() {
-  // const [ show, setShow ] = useState(false)
+ 
+  const value = useContext(LoginContext)
+
   return (
     <div>
-      {/* { show && 
-        <Form 
-          title="Form Đăng nhập"
-        />
+      { value.show && <Register onClick={value.showFalse}/>}
+      
+      { value.success ? <Profile /> :
+          <Formlogin onShow={value.onShow} onSuccess={value.onSuccess}/> 
       }
-      <button onClick={() => setShow(!show)} > Click show </button> */}
-
-      <Formlogin />
       
     </div>
-  );
+  )
 }
 
 export default App;

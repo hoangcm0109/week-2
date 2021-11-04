@@ -1,7 +1,9 @@
-import React from 'react'
-import { useState } from 'react'
+import { useState, useContext } from 'react'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { LoginContext } from '../context/LoginContext'
 
-export default function Login(props) {
+export default function Login() {
     const [email, setEmail] = useState()
     const [password, setPassword] = useState()
     const [showPassword, setShowPassword] = useState('password')
@@ -9,15 +11,26 @@ export default function Login(props) {
     const [alert, setAlert] = useState(false)
     const [fail, setFail] = useState(false)
 
+
+    const value = useContext(LoginContext)
     // console.log(props);
 
     const handleSubmit = () => {
         if(email === '123456' && password === '123456') {
             setAlert(true)
             setFail(false)
-            props.show()
-            
+            value.onSuccess()
+
         } else {
+            toast.error('Mật khẩu không chính xác', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
             setAlert(false)
             setFail(true)
         }
@@ -53,8 +66,8 @@ export default function Login(props) {
                 />
                 <i className="fas fa-eye eye-password"
                     onClick={(e) => {
-                        const type = showPassword === 'text' ? 'password' : 'text';
-                        console.log(type);
+                        const type = showPassword === 'text' ? 'password' : 'text'
+                        console.log(type)
                         setShowPassword(type)
                     }}
                 ></i>
@@ -77,6 +90,19 @@ export default function Login(props) {
                     {alert && <div className="alert alert-success position-alert">Đăng nhập thành công</div>}
                     {fail && <div className="alert alert-danger position-alert">Tài khoản mật khẩu không chính xác</div>}
                 </div>
+                <ToastContainer
+                    position="top-right"
+                    autoClose={5000}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                    />
+                    {/* Same as */}
+                <ToastContainer />
             </div>
         </div>
     )
