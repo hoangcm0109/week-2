@@ -2,6 +2,7 @@ import { useState, useContext } from 'react'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { LoginContext } from '../context/LoginContext'
+import axios from 'axios';
 
 export default function Login() {
     const [email, setEmail] = useState()
@@ -15,27 +16,51 @@ export default function Login() {
     const value = useContext(LoginContext)
     // console.log(props);
 
-    const handleSubmit = () => {
-        if(email === '123456' && password === '123456') {
-            setAlert(true)
-            setFail(false)
-            value.onSuccess()
+    const infoAPI = {
+        email,
+        password
+    }
 
-        } else {
-            toast.error('Mật khẩu không chính xác', {
-                position: "top-right",
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-            });
-            setAlert(false)
-            setFail(true)
+    const handleSubmit = async () => {
+        const loginAPI = {
+            Device: {
+                DeviceEnvironment: "WEB"
+            },
+            Action: {
+                ActionCode: "LOGIN_TNT.LOGIN"
+            },
+            Data: infoAPI
         }
+
+        let dataLogin = await axios.post('https://dev-api-interns.hdinsurance.com.vn/OpenApi/TT/Post', loginAPI)
+
+        dataLogin.data.Data.forEach(e => {
+
+            if(e[0].STATUS === "Success") {
+                setAlert(true)
+                setFail(false)
+                value.onSuccess()
+
+            } else {
+                toast.error('Mật khẩu không chính xác', {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                });
+                setAlert(false)
+                setFail(true)
+            } 
+        }
+        )
         
     }
+
+
+    
 
 
     return (
