@@ -23,18 +23,20 @@ export default function Formlogin(props) {
                     
                     <Login />
 
-                    <div className="br"></div>
 
                     <div className="footer">
-                        <div className="footer-title">
-                            Theo dõi trên mạng xã hội
-                        </div>
-                        <div className="icon-footer">
-                            <ion-icon name="logo-facebook"></ion-icon>
-                            <ion-icon name="logo-twitter"></ion-icon>
-                            <ion-icon name="logo-google"></ion-icon>
-                            <ion-icon name="logo-instagram"></ion-icon>
-                            <ion-icon name="logo-linkedin"></ion-icon>
+                        <div className="br"></div>
+                        <div className="footer-item">
+                            <div className="footer-title">
+                                Theo dõi trên mạng xã hội
+                            </div>
+                            <div className="icon-footer">
+                                <ion-icon name="logo-facebook"></ion-icon>
+                                <ion-icon name="logo-twitter"></ion-icon>
+                                <ion-icon name="logo-google"></ion-icon>
+                                <ion-icon name="logo-instagram"></ion-icon>
+                                <ion-icon name="logo-linkedin"></ion-icon>
+                            </div>
                         </div>
                     </div>
                 </div>

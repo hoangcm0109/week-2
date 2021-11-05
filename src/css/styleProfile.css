@@ -47,6 +47,11 @@
     position: relative;
 }
 
+.img {
+    height: 250px;
+    width: 100%;
+}
+
 .content-profile {
     position: absolute;
     top: 42px;

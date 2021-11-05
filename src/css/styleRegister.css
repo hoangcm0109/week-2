@@ -16,9 +16,9 @@
 .sign-up {
     position: absolute;
     width: 500px;
-    left: 470px;
-    top: 206px;
-
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
     background: #FFFFFF;
     border-radius: 6px;
 }

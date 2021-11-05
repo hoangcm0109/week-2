@@ -6,9 +6,6 @@ import img2 from '../img/img2.png'
 import images from '../img/image.js'
 
 export default function Profile() {
-
-    console.log(img2);
-    console.log(images);
     return (
         <div>
             <div className="main-menu">
