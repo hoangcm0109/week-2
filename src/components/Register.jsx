@@ -3,6 +3,7 @@ import '../css/styleRegister.css'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 
 export default function Register(props) {
     let email, phone, password, full_name, gender
@@ -30,10 +31,10 @@ export default function Register(props) {
     
     
     const handleSubmit = async () => {
-        if( (overView.password === confirm)) {
-            let data = await axios.post('https://dev-api-interns.hdinsurance.com.vn/OpenApi/TT/Post', bodyAPI)
-            console.log(data);
-            toast.success('Đăng ký thành công', {
+        const {email, phone, password, full_name, gender} = overView
+
+        if(email === undefined || phone === undefined || password === undefined || full_name === undefined || gender === undefined || confirm === '') {
+            toast.warn('Chưa nhập đầy đủ', {
                 position: "top-center",
                 autoClose: 5000,
                 hideProgressBar: false,
@@ -43,15 +44,31 @@ export default function Register(props) {
                 progress: undefined,
             })
         } else {
-            toast.warn('Xác nhận mật khẩu sai', {
-                position: "top-center",
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-            })
+
+            if( (password === confirm)) {
+                let data = await axios.post('https://dev-api-interns.hdinsurance.com.vn/OpenApi/TT/Post', bodyAPI)
+                
+                console.log(data)
+                toast.success('Đăng ký thành công', {
+                    position: "top-center",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                })
+            } else {
+                toast.warn('Xác nhận mật khẩu sai', {
+                    position: "top-center",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                })
+            }
         }
     }
 
@@ -62,7 +79,9 @@ export default function Register(props) {
                     <p className="sign-title">
                         Đăng ký
                     </p>
-                    <i className="fas fa-times close" onClick={props.onClick}></i>
+                    <Link to="/">
+                        <i className="fas fa-times close" onClick={props.onClick}></i>
+                    </Link>
                 </div>
                 <div className="sign-br"></div>
                 <div className="sign-input">
@@ -157,7 +176,7 @@ export default function Register(props) {
                     <div className="btn-submit"
                         onClick={handleSubmit}
                     >
-                        Đăng nhập
+                        <div>Đăng ký</div>
                         <div className="icon">
                             <ion-icon name="arrow-forward-outline"></ion-icon>
                         </div>
@@ -168,17 +187,7 @@ export default function Register(props) {
                     </div>
                 </div>
             </div>
-            <ToastContainer
-                position="top-center"
-                autoClose={5000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false} 
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-            />
+            <ToastContainer />
         </div>
     )
 }

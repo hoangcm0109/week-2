@@ -1,23 +1,28 @@
-import Register from './components/Register';
-import Form from './components/Form';
-import Formlogin from './components/Formlogin';
-import Profile from './components/Profile';
+import React from 'react'
 import './App.css';
-import { useContext } from "react";
-import { LoginContext } from './context/LoginContext'
+import RouterLogin from './routers/RouterLogin';
+import { BrowserRouter } from 'react-router-dom'
 function App() {
  
-  const value = useContext(LoginContext)
 
   return (
-    <div>
-      { value.show && <Register onClick={value.showFalse}/>}
+    <BrowserRouter>
+      <div>
+        {/* { value.show && <Register onClick={value.showFalse}/>} */}
       
-      { value.success ? <Profile /> :
-          <Formlogin onShow={value.onShow} onSuccess={value.onSuccess}/> 
-      }
-      
-    </div>
+        {/* { value.success ? 
+                <Route path="/login" element={<Profile />} />
+                :
+                <Route path="/*" element={<Formlogin onShow={value.onShow} />} exact/>
+            } */} 
+        <RouterLogin />
+        {/* <Routes>
+          <Route path="/" element={<Formlogin />} exact/>
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Profile />} />
+        </Routes> */}
+      </div>
+    </BrowserRouter>
   )
 }
 

@@ -1,13 +1,42 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import '../css/styleProfile.css'
 import ProfileImg from '../img/profile.png'
 import avatar from '../img/avt.png'
-import img2 from '../img/img2.png'
 import images from '../img/image.js'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from 'react-router-dom'
 
 export default function Profile() {
+
+    useEffect(() => {
+        toast.success('Đăng nhập thành công', {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+        })
+    }, [])
+
+    let navigate = useNavigate()
+
     return (
         <div>
+            <button onClick={() => navigate('/')}>Go back</button>
+            <ToastContainer
+                    position="top-right"
+                    autoClose={5000}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+            />
             <div className="main-menu">
                 <div className="menu-link">
                     Trang Chủ

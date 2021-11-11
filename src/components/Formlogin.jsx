@@ -2,10 +2,9 @@ import React from 'react'
 import '../css/styleForm.css'
 import image from '../img/img1.png'
 import Login from './Login'
+import { Link } from 'react-router-dom'
 
 export default function Formlogin(props) {
-
-
     return (
         <div>
             <div className="row test">
@@ -13,13 +12,13 @@ export default function Formlogin(props) {
                     <img src={image} className="img-login" alt="Hello anh em" />
                 </div>
                 <div className="col-8">
-                    <div className="register">
-                        <div className="register-title" 
-                            onClick={props.onShow}
-                        >
-                            Đăng ký
+                    <Link to="/register">
+                        <div className="register">
+                                <div className="register-title">
+                                        Đăng ký
+                                </div>
                         </div>
-                    </div>
+                    </Link>
                     
                     <Login />
 
