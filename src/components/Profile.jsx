@@ -25,7 +25,6 @@ export default function Profile() {
 
     return (
         <div>
-            <button onClick={() => navigate('/')}>Go back</button>
             <ToastContainer
                     position="top-right"
                     autoClose={5000}
@@ -38,6 +37,8 @@ export default function Profile() {
                     pauseOnHover
             />
             <div className="main-menu">
+                <div className="btn-submit"onClick={() => navigate('/')}>Go back</div>
+                
                 <div className="menu-link">
                     Trang Chủ
                 </div>            

@@ -4,37 +4,40 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios'
 import { Link } from 'react-router-dom'
+import { useForm } from "react-hook-form";
 
 export default function Register(props) {
-    let email, phone, password, full_name, gender
 
     const [confirm, setConfirm] = useState()
 
-    const [overView, setOverView] = useState({
-        email,
-        phone,
-        password,
-        full_name,
-        gender
-    })
-    
-    const bodyAPI = {
+    const { register, handleSubmit, formState: { errors } } = useForm()
+
+    const onSubmit = async (data) => {
+
+        const { email, password, phone, gender, full_name } = data
+
+        console.log(data)
+        const bodyAPI = {
             Device: {
                 DeviceEnvironment: "WEB"
             },
             Action: {
                 ActionCode: "LOGIN_TNT.REGISTER"
             },
-            Data: overView
+            Data: {
+                email,
+                phone,
+                password,
+                full_name,
+                gender
+            }
         }
-        
     
-    
-    const handleSubmit = async () => {
-        const {email, phone, password, full_name, gender} = overView
-
-        if(email === undefined || phone === undefined || password === undefined || full_name === undefined || gender === undefined || confirm === '') {
-            toast.warn('Chưa nhập đầy đủ', {
+        if( (data.password === confirm)) {
+            let dataAPI = await axios.post('https://dev-api-interns.hdinsurance.com.vn/OpenApi/TT/Post', bodyAPI)
+            
+            console.log(dataAPI)
+            toast.success('Đăng ký thành công', {
                 position: "top-center",
                 autoClose: 5000,
                 hideProgressBar: false,
@@ -44,37 +47,22 @@ export default function Register(props) {
                 progress: undefined,
             })
         } else {
-
-            if( (password === confirm)) {
-                let data = await axios.post('https://dev-api-interns.hdinsurance.com.vn/OpenApi/TT/Post', bodyAPI)
-                
-                console.log(data)
-                toast.success('Đăng ký thành công', {
-                    position: "top-center",
-                    autoClose: 5000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                })
-            } else {
-                toast.warn('Xác nhận mật khẩu sai', {
-                    position: "top-center",
-                    autoClose: 5000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                })
-            }
-        }
+            toast.warn('Xác nhận mật khẩu sai', {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            })
+        }  
+        
     }
 
     return (
-        <div className="main">
-            <div className="sign-up">
+        <div className="main" onSubmit={handleSubmit(onSubmit)}>
+            <form className="sign-up">
                 <div className="register-sign">
                     <p className="sign-title">
                         Đăng ký
@@ -92,13 +80,9 @@ export default function Register(props) {
                             id="name"
                             className="input-btn"
                             placeholder="Trần Văn A"
-                            onChange={(e) => {
-                                setOverView(prev => ({
-                                    ...prev,
-                                    full_name: e.target.value
-                                }))
-                            }}
+                            {...register("full_name", {required: true})}
                         />
+                        {errors?.full_name?.type === "required" && <div className="validate">This field is required</div>}
 
                         <label htmlFor="number" className="input-label">Số điện thoại</label>
                         <input
@@ -106,13 +90,9 @@ export default function Register(props) {
                             id="number"
                             className="input-btn"
                             placeholder="0123 456 789"
-                            onChange={(e) => {
-                                setOverView(prev => ({
-                                    ...prev,
-                                    phone: e.target.value
-                                }))
-                            }}
+                            {...register("phone", {required: true})}
                         />
+                        {errors?.phone?.type === "required" && <div className="validate">This field is required</div>}
                     </div>
                     <div className="input-left">
                         <label htmlFor="gender" className="input-label">Giới tính</label>
@@ -121,13 +101,9 @@ export default function Register(props) {
                             id="gender"
                             className="input-btn"
                             placeholder="Nam"
-                            onChange={(e) => {
-                                setOverView(prev => ({
-                                    ...prev,
-                                    gender: e.target.value
-                                }))
-                            }}
+                            {...register("gender", {required: true})}
                         />
+                        {errors?.gender?.type === "required" && <div className="validate">This field is required</div>}
 
                         <label htmlFor="email" className="input-label">Email</label>
                         <input
@@ -135,13 +111,10 @@ export default function Register(props) {
                             id="email"
                             className="input-btn"
                             placeholder="example@gmail.com"
-                            onChange={(e) => {
-                                setOverView(prev => ({
-                                    ...prev,
-                                    email: e.target.value
-                                }))
-                            }}
+                            {...register("email", {required: true})}
                         />
+                        {errors?.full_name?.type === "required" && <div className="validate">This field is required</div>}
+
                     </div>
                 </div>
                 <div className="password-sign">
@@ -151,14 +124,11 @@ export default function Register(props) {
                         id="password"
                         className="input-btn password-btn"
                         placeholder="Mật khẩu"
-                        onChange={(e) => {
-                            setOverView(prev => ({
-                                ...prev,
-                                password: e.target.value
-                            }))
-                        }}
+                        {...register("password", {required: true})}
+
                     />
                     <i className="fas fa-eye eye-password"></i>
+                    {errors?.password?.type === "required" && <div className="validate">This field is required</div>}
                 </div>
                 <div className="password-sign">
                     <label htmlFor="re-password" className="input-label password-label">Xác nhận mật khẩu</label>
@@ -170,23 +140,24 @@ export default function Register(props) {
                         onChange={(e) => setConfirm(e.target.value)}    
                     />
                     <i className="fas fa-eye eye-password"></i>
+                    {confirm && <div className="validate">This field is required</div>}
                 </div>
 
                 <div className="button">
-                    <div className="btn-submit"
-                        onClick={handleSubmit}
+                    <button className="btn-submit"
+                        type="submit"
                     >
                         <div>Đăng ký</div>
                         <div className="icon">
                             <ion-icon name="arrow-forward-outline"></ion-icon>
                         </div>
-                    </div>
+                    </button>
 
                     <div className="no-password">
                         Quên mật khẩu
                     </div>
                 </div>
-            </div>
+            </form>
             <ToastContainer />
         </div>
     )

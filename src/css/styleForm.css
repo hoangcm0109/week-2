@@ -108,6 +108,7 @@
 .btn-submit {
     background: #3E45ED;
     border-radius: 8px;
+    border: none;
     padding: 12px 16px;
     display: flex;
     align-items: center;
@@ -116,6 +117,7 @@
     font-weight: 600;
     font-size: 16px;
     line-height: 24px;
+
     color: #ffffff;
     transition: 0.5s ease;
 }

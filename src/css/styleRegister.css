@@ -59,6 +59,7 @@
 .input-label {
     margin-bottom: 8px;
     font-size: 14px;
+    font-weight: bold;
 }
 
 
@@ -73,6 +74,8 @@
     border-radius: 8px;
     margin-bottom: 16px;
     outline: none;
+
+    font-size: 14px;
 }
 
 .input-btn:focus {
@@ -103,3 +106,8 @@
     justify-content: space-between;
     align-items: center;
 }
+
+.validate {
+    color: red;
+    font-size: 14px;
+  }
